@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.li.mapper.ContractMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.li.pojo.Contract">
+        <id column="contractId" property="contractId" />
+        <result column="propertyId" property="propertyId" />
+        <result column="landlordId" property="landlordId" />
+        <result column="tenantId" property="tenantId" />
+        <result column="contractStartDate" property="contractStartDate" />
+        <result column="contractEndDate" property="contractEndDate" />
+        <result column="contractAmount" property="contractAmount" />
+        <result column="otherContractInfo" property="otherContractInfo" />
+        <result column="status" property="status" />
+    </resultMap>
+
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        contractId, propertyId, landlordId, tenantId, contractStartDate, contractEndDate, contractAmount, otherContractInfo, status
+    </sql>
+
+    <select id="selectContractDto" resultType="com.li.dto.ContractDto">
+        SELECT c1.contractId, c1.propertyId, c1.landlordId, c1.tenantId, c1.contractStartDate, c1.contractEndDate, c1.contractAmount, c1.otherContractInfo, c1.status,
+               u1.userName, u2.userName, p1.propertyType, p1.address, p1.area
+        FROM contract c1
+                 INNER JOIN user u1 ON c1.landlordId = u1.userId
+                 INNER JOIN user u2 ON c1.tenantId = u2.userId
+                 INNER JOIN property p1 ON c1.propertyId = p1.propertyId
+    </select>
+
+    <select id="selectById"  resultType="com.li.pojo.Contract" parameterType="string">
+        select * from contract where contractId = #{contractId}
+    </select>
+
+</mapper>

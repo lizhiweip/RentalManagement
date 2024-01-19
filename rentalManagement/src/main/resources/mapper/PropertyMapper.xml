@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.li.mapper.PropertyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.li.pojo.Contract">
+        <id column="propertyId" property="propertyId" />
+        <result column="ownerId" property="ownerId" />
+        <result column="propertyType" property="propertyType" />
+        <result column="address" property="address" />
+        <result column="area" property="area" />
+        <result column="rentAmount" property="rentAmount" />
+        <result column="status" property="status" />
+        <result column="otherInfo" property="otherInfo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        propertyId, ownerId, propertyType, address, area, rentAmount, status, otherInfo
+    </sql>
+
+    <select id="selectProperty" parameterType="com.li.dto.PropertyDto">
+        select p1.propertyId, p1.ownerId, p1.propertyType, p1.address, p1.area, p1.rentAmount, p1.status, p1.otherInfo, u1.ownerName
+        from property p1, user u1
+        where p1.ownerId = u1.userId
+    </select>
+
+
+
+
+
+
+</mapper>

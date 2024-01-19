@@ -7,5 +7,5 @@
   以下是项目的部分截图：
 </h2>
 
-![屏幕截图 2024-01-19 173120.png](https://img1.imgtp.com/2024/01/19/HDEcub2m.png)
-![屏幕截图 2024-01-19 173156.png](https://img1.imgtp.com/2024/01/19/JdxR7H0g.png)
+![屏幕截图 2024-01-19 173120.png](https://www.freeimg.cn/bT7rSi.png)
+![屏幕截图 2024-01-19 173156.png](https://www.freeimg.cn/aG2jl0.png)
